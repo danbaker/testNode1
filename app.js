@@ -1,8 +1,12 @@
 var express = require('express'),
     app = express.createServer(),
     io = require('socket.io').listen(app);
+console.log("Test A");
+console.log("Test B");
+console.log("Test C");
+console.log("Test D");
 
-app.listen(8123);
+app.listen(process.env.PORT);
 console.log("Server listening on port %d in %s mode", app.address().port, app.settings.env);
 
 io.configure(function(){

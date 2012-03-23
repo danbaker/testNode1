@@ -4,7 +4,7 @@ MySocket = {
     // initialize.  establish connection to server
     init: function() {
         var self = this;
-        self.theSocket = io.connect('http://localhost');
+        self.theSocket = io.connect('http://testnode1.danbaker.c9.io/');
         self.theSocket.on('news', function (data) {
             console.log(data);
             self.theSocket.emit('my other event', { my: 'data' });
