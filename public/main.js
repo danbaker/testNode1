@@ -42,7 +42,8 @@ MyGame = {
     gh: 0,
 
     // initialize the game
-    init: function(es) {
+    init: function(es, idInput) {
+        this.idInput = idInput;
         this.gw = parseInt(this.w / this.gsize, 10);     // calc # of grid cells that fit
         this.gh = parseInt(this.h / this.gsize, 10);
         this.w = this.gw * this.gsize;                   // adjust size to fit exact grid cells
@@ -59,11 +60,24 @@ MyGame = {
             this.ctx.push(ctx);
         }
         this.socket = MySocket;
+        // attach keypress handler
+        var self = this;
+        $(this.idInput).keydown(function(evt) {
+            self.onKeyPress(evt);
+        });
+        $(this.idInput).focus();
     },
 
     // RUN the game (the main entry point)
     run: function() {
         this.socket.init(this);
+    },
+
+    onKeyPress: function(evt) {
+        evt.preventDefault();
+        console.log("Keypress: "+evt.which);
+        // left=37, right=39, up=38, down=40
+        // a=65,    d=68,     w=87,  s=83,x=88
     },
 
     zLastJunk: null

@@ -3,14 +3,15 @@
 <script src="main.js"></script>
 
 Test.
-
-<canvas id="GameCanvas1" width=99 height=99 style="position: absolute; background-color:"#ff000080"></canvas>
+<input id="inputArea" type="text" value="" />
+<br>
+<canvas id="GameCanvas1" width=99 height=99 style="position: absolute; background-color:#eee;"></canvas>
 <canvas id="GameCanvas2" width=99 height=99 style="position: absolute;"></canvas>
 
 <script>
     var game = MyGame;
     var el1 = document.getElementById("GameCanvas1");
     var el2 = document.getElementById("GameCanvas2");
-    game.init([el1, el2]);
+    game.init([el1, el2], "#inputArea");
     game.run();
 </script>
